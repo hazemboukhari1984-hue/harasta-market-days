@@ -1,0 +1,24 @@
+{
+  "overview": "Harasta Market Days is a bilingual Arabic-first rental marketplace app for a Syrian commercial market. Merchants can browse pricing for small and large retail spaces, submit booking requests with auto-calculated totals, and admins can manage all bookings through a secure dashboard.",
+  "features": [
+    "Arabic-first RTL layout with English toggle",
+    "Dual pricing tables for small (31) and large (11) stores",
+    "Booking form with auto-calculated rental + deposit total",
+    "Admin dashboard with booking management (Internet Identity login)",
+    "Premium gold/dark luxury theme",
+    "Terms & Conditions with confirmation checkbox",
+    "Features & services showcase section"
+  ],
+  "category": "productivity",
+  "tags": [
+    "arabic",
+    "rtl",
+    "marketplace",
+    "rental",
+    "booking",
+    "admin-dashboard",
+    "bilingual",
+    "luxury"
+  ],
+  "last_updated": "2026-05-13T19:01:23.575Z"
+}

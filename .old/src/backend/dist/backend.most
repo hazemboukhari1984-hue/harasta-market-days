@@ -1,0 +1,39 @@
+// Version: 1.0.0
+type BookingRef__636939717 = Text;
+type Booking__1057793126 =
+  {
+    bookingDate : Text;
+    createdAt : Timestamp__301639476;
+    deposit : Nat;
+    duration : DurationPackage__880717170;
+    id : Nat;
+    merchantName : Text;
+    nationalId : Text;
+    paymentMethod : PaymentMethod__349669405;
+    ref : BookingRef__636939717;
+    rentalPrice : Nat;
+    storeType : StoreType__469603288;
+    totalPrice : Nat
+  };
+type DurationPackage__880717170 =
+  {#fourHours; #fullDay; #oneHour; #threeHours; #twoHours; #weekly};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type PaymentMethod__349669405 = {#cash; #electronic};
+type StoreType__469603288 = {#large; #small};
+type Timestamp__301639476 = Int;
+actor {
+  stable adminList :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Principal]];
+      var elementIndex : Nat__490723111
+    };
+  stable bookings :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Booking__1057793126]];
+      var elementIndex : Nat__490723111
+    };
+  stable state : {var nextId : Nat}
+};

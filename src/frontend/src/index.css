@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: Fraunces, serif;
+    --font-body: GeneralSans, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    --font-mono: GeistMono, monospace;
+    --radius: 0.625rem;
+
+    --background: 0.12 0.01 70;
+    --foreground: 0.92 0.005 70;
+    --card: 0.18 0.01 70;
+    --card-foreground: 0.92 0.005 70;
+    --popover: 0.22 0.01 70;
+    --popover-foreground: 0.92 0.005 70;
+
+    --primary: 0.68 0.12 70;
+    --primary-foreground: 0.12 0.01 70;
+
+    --secondary: 0.22 0.01 70;
+    --secondary-foreground: 0.92 0.005 70;
+    --muted: 0.28 0.01 70;
+    --muted-foreground: 0.6 0.01 70;
+
+    --accent: 0.68 0.12 70;
+    --accent-foreground: 0.12 0.01 70;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.28 0.02 70;
+    --input: 0.22 0.01 70;
+    --ring: 0.68 0.12 70;
+
+    --chart-1: 0.68 0.12 70;
+    --chart-2: 0.65 0.08 55;
+    --chart-3: 0.55 0.1 45;
+    --chart-4: 0.7 0.11 65;
+    --chart-5: 0.6 0.09 75;
+
+    --sidebar: 0.15 0 0;
+    --sidebar-foreground: 0.92 0 0;
+    --sidebar-primary: 0.68 0.12 70;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.28 0 0;
+    --sidebar-accent-foreground: 0.92 0 0;
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: 0.68 0.12 70;
+  }
+
+  .dark {
+    --background: 0.12 0 0;
+    --foreground: 0.92 0 0;
+    --card: 0.18 0 0;
+    --card-foreground: 0.92 0 0;
+    --popover: 0.22 0 0;
+    --popover-foreground: 0.92 0 0;
+
+    --primary: 0.68 0.12 70;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.22 0 0;
+    --secondary-foreground: 0.92 0 0;
+    --muted: 0.28 0 0;
+    --muted-foreground: 0.6 0 0;
+
+    --accent: 0.68 0.12 70;
+    --accent-foreground: 0.12 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.25 0 0;
+    --input: 0.2 0 0;
+    --ring: 0.68 0.12 70;
+
+    --chart-1: 0.49 0.24 264;
+    --chart-2: 0.7 0.17 162;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.15 0 0;
+    --sidebar-foreground: 0.92 0 0;
+    --sidebar-primary: 0.68 0.12 70;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.28 0 0;
+    --sidebar-accent-foreground: 0.92 0 0;
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: 0.68 0.12 70;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeneralSans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 400 500;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .text-accent-line {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  .text-accent-line::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 2px;
+    background: oklch(var(--accent));
+  }
+  .gradient-gold {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--accent)),
+      oklch(var(--accent) / 0.7)
+    );
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      oklch(var(--background) / 0.85) 0%,
+      oklch(var(--background) / 0.95) 100%
+    );
+  }
+}
+
+[dir="rtl"] {
+  font-family: var(--font-body), "Cairo", "Noto Sans Arabic", sans-serif;
+}
+
+.shadow-subtle {
+  box-shadow: 0 1px 4px oklch(0 0 0 / 0.3);
+}

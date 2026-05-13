@@ -1,0 +1,52 @@
+type Timestamp = int;
+type StoreType = 
+ variant {
+   large;
+   small;
+ };
+type PaymentMethod = 
+ variant {
+   cash;
+   electronic;
+ };
+type DurationPackage = 
+ variant {
+   fourHours;
+   fullDay;
+   oneHour;
+   threeHours;
+   twoHours;
+   weekly;
+ };
+type BookingRequest = 
+ record {
+   bookingDate: text;
+   duration: DurationPackage;
+   merchantName: text;
+   nationalId: text;
+   paymentMethod: PaymentMethod;
+   storeType: StoreType;
+ };
+type BookingRef = text;
+type Booking = 
+ record {
+   bookingDate: text;
+   createdAt: Timestamp;
+   deposit: nat;
+   duration: DurationPackage;
+   id: nat;
+   merchantName: text;
+   nationalId: text;
+   paymentMethod: PaymentMethod;
+   ref: BookingRef;
+   rentalPrice: nat;
+   storeType: StoreType;
+   totalPrice: nat;
+ };
+service : {
+  getAllBookings: () -> (vec Booking);
+  getBooking: (ref: BookingRef) -> (opt Booking) query;
+  getBookingCount: () -> (nat) query;
+  getBookingsByDate: (date: text) -> (vec Booking) query;
+  submitBooking: (req: BookingRequest) -> (BookingRef);
+}
